@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <main class="center-hv">
@@ -42,39 +44,39 @@ function Home() {
             <div class="categories-title">
               <h3>Education</h3>
             </div>
-            <a href="./pages/markup/prod-list.html">
+            <Link to="/explore">
               <img
                 class="category-img"
                 src="https://i.ibb.co/K9Bx1SD/streflix-education.jpg"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
 
           <div class="category">
             <div class="categories-title">
               <h3>Gaming</h3>
             </div>
-            <a href="./pages/markup/prod-list.html">
+            <Link to="/explore">
               <img
                 class="category-img"
                 src="https://i.ibb.co/GVgTxDZ/streflix-gaming.jpg"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
 
           <div class="category">
             <div class="categories-title">
               <h3>Art</h3>
             </div>
-            <a href="./pages/markup/prod-list.html">
+            <Link to="/explore">
               <img
                 class="category-img"
                 src="https://i.ibb.co/pKtQdQT/streflix-art.jpg"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

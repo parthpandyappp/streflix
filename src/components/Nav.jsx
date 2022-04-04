@@ -1,16 +1,20 @@
+import { Link } from "react-router-dom";
+
 function Nav() {
   return (
     <nav>
-      <h2 class="nav-title">
-        <span>
-          <img
-            class="logo"
-            src="https://img.icons8.com/ios/50/000000/retro-tv.png"
-            alt="logo"
-          />
-        </span>
-        /<span class="title-empha">Stre</span>Flix
-      </h2>
+      <Link to="/">
+        <h2 class="nav-title">
+          <span>
+            <img
+              class="logo"
+              src="https://img.icons8.com/ios/50/000000/retro-tv.png"
+              alt="logo"
+            />
+          </span>
+          /<span class="title-empha">Stre</span>Flix
+        </h2>
+      </Link>
 
       <div>
         <input
