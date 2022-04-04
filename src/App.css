@@ -20,6 +20,10 @@ nav {
   border-bottom: 1px solid gray;
 }
 
+.nav-pills {
+  display: flex;
+  align-items: center;
+}
 .nav-title {
   font-family: "Fredoka", cursive;
 }

@@ -1,4 +1,5 @@
 import "./App.css";
+import "./styles/login.css"
 import { Routes } from "./routes/Routes"
 import { Nav, Footer } from "./components"
 
