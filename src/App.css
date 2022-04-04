@@ -46,6 +46,7 @@ nav {
   font-weight: bolder;
   border: none;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .btn-primary {
