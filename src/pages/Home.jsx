@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <main className="center-hv">
+    <main className="center-hv h-90">
       <div className="container">
         <div>
           <h1 className="main-title">
