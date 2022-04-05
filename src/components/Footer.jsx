@@ -1,5 +1,5 @@
 function Footer() {
-  return <h1>Footer</h1>;
+  return <footer>Developed with ❤️ by Parth</footer>;
 }
 
 export { Footer };

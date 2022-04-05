@@ -1,51 +1,189 @@
-.App {
-  text-align: center;
+/* Importing fonts from Google */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&family=Poppins:wght@200&display=swap");
+
+* {
+  --primary-color: #f43f5e;
+  --slate-white: #f8fafc;
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  display: block;
+  padding: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
+/* For navigation bar */
+nav {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+.nav-title {
+  font-family: "Fredoka", cursive;
+}
+
+.main-title {
+  font-family: "Fredoka", cursive;
+  font-size: 3rem;
+}
+
+.main-slogan {
+  font-family: "Fredoka", cursive;
+  letter-spacing: 0.2rem;
+}
+
+.logo {
+  transform: rotate(-60deg);
+}
+
+.title-empha {
+  color: var(--primary-color);
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  font-weight: bolder;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  font-weight: bolder;
+  background-color: var(--primary-color);
+  color: var(--slate-white);
+}
+
+.btn-secondary {
+  font-weight: bolder;
+  background: none;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login-btn {
+  letter-spacing: 0.1rem;
+}
+
+.search-bar {
+  padding: 0.6rem 2rem;
+  border: 1px solid black;
+  background: none;
+  border-radius: 0.5rem;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
-  color: white;
+  margin-top: 5rem;
+  width: 70%;
 }
 
-.App-link {
-  color: #61dafb;
+.h-50 {
+  height: 50vh;
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
+.center-hv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
 }
 
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
+.landing-main {
   display: flex;
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.landing-img {
+  width: 30rem;
+}
+
+/* styles for Category */
+.pg-section {
+  margin-top: 5rem;
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+}
+
+.category-title {
+  font-family: "Fredoka", cursive;
+}
+.category {
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--slate-white);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 15rem;
+  height: 20rem;
+  position: relative;
+}
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 1rem;
+}
+
+.category-img {
+  position: absolute;
+  width: 12rem;
+  height: 15rem;
+  left: -8%;
+  border-radius: 0.5rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media screen and (max-width: 750px) {
+  #search-bar {
+    display: none;
+  }
+  .ham-menu {
+    display: block;
+  }
+  .container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .font-lg {
+    font-size: small;
+  }
+  .landing-img {
+    width: 100%;
+  }
+  .main-title {
+    font-size: 2rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+  }
 }
