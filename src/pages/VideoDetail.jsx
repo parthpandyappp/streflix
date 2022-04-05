@@ -75,7 +75,6 @@ function VideoDetail() {
             )}
           </div>
         </div>
-        alt=""
       </div>
     </div>
   );
