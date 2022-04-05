@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts";
+import { logoutHandler } from "../helper-functions";
 
 function Nav() {
+  const { user, boolFunc } = useAuth();
+
   return (
     <nav>
       <Link to="/">
@@ -16,15 +20,29 @@ function Nav() {
         </h2>
       </Link>
 
-      <div>
-        <input
-          type="search"
-          name=""
-          id="search-bar"
-          className="search-bar"
-          placeholder="Your search goes here"
-        />
-        <button className="btn btn-primary login-btn ml-2">Login</button>
+      <div className="nav-pills">
+        <div>{user ? <h4>Hello {user.firstName}👋</h4> : ""}</div>
+        <div className="ml-2">
+          <input
+            type="search"
+            name=""
+            id="search-bar"
+            className="search-bar"
+            placeholder="Your search goes here"
+          />
+          {user ? (
+            <button
+              className="btn btn-primary login-btn ml-2"
+              onClick={() => logoutHandler(boolFunc)}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-primary login-btn ml-2">Login</button>
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );
