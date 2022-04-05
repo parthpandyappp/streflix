@@ -11,6 +11,7 @@ import {
   LikedVids,
   WatchLater,
   VidHistory,
+  VideoDetail,
 } from "../pages";
 
 function Endpoints() {
@@ -19,6 +20,7 @@ function Endpoints() {
       <Route path="/playlist" element={<Playlist />} />
       <Route path="/history" element={<VidHistory />} />
       <Route path="/watchlater" element={<WatchLater />} />
+      <Route path="/video/:vid" element={<VideoDetail />} />
       <Route path="/explore" element={<Explore />} />
       <Route path="/liked" element={<LikedVids />} />
       <Route path="/signup" element={<Signup />} />

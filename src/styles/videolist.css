@@ -87,6 +87,13 @@
   padding: 0.5rem;
 }
 
+.user-opts {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 0.5rem;
+}
+
 .util-icon {
   height: 2rem;
   width: 2rem;
@@ -94,4 +101,9 @@
 
 .btn-util {
   padding: 0.5rem 0.5rem;
+}
+
+.detail-preview {
+  height: 60vh;
+  width: 150vh;
 }
