@@ -14,6 +14,7 @@ function VideoDetail() {
 
   useEffect(() => {
     checkAvailability();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoData]);
 
   return (
@@ -42,6 +43,7 @@ function VideoDetail() {
             {videoObj && (
               <div className="detail-preview">
                 <iframe
+                  title={videoObj.title}
                   width="100%"
                   height="100%"
                   src={`https://www.youtube.com/embed/${videoObj.videoURL}`}
@@ -51,24 +53,29 @@ function VideoDetail() {
                   <img
                     src="https://img.icons8.com/material-outlined/48/000000/thumb-up.png"
                     title="Like this video"
+                    alt="like"
                   />
                   <img
                     src="https://img.icons8.com/material-outlined/48/000000/thumbs-down.png"
                     title="Dislike this video"
+                    alt="dislike"
                   />
                   <img
                     src="https://img.icons8.com/windows/48/000000/clock--v1.png"
                     title="Add to Watch Later"
+                    alt="watch-later"
                   />
                   <img
                     src="https://img.icons8.com/ios-glyphs/48/000000/lounge-music-playlist.png"
                     title="Add to Playlist"
+                    alt="playlist"
                   />
                 </div>
               </div>
             )}
           </div>
         </div>
+        alt=""
       </div>
     </div>
   );

@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
 function VideoCard({ video }) {
-  const logging = () => {
-    console.log("logs it");
-  };
   return (
     <Link to={`/video/${video._id}`}>
       <div className="card-main">
@@ -20,16 +17,3 @@ function VideoCard({ video }) {
 }
 
 export { VideoCard };
-
-// utils
-{
-  /* <div className="utils">
-  <hr />
-  <div className="utils-opts">
-    <button className="btn btn-primary btn-util" onClick={logging}>
-      Watch Later
-    </button>
-    <button className="btn btn-primary btn-util">Add to Playlist</button>
-  </div>
-</div>; */
-}
