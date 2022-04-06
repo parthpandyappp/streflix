@@ -3,7 +3,7 @@ import { VideoCard } from "../components";
 
 function Explore() {
   const videos = useVideoData();
-  console.log(videos);
+
   return (
     <div className="main-container">
       <div className="side-nav">
