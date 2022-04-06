@@ -20,6 +20,7 @@
 
 .side-nav p {
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 .side-nav p:nth-child(even) {
   background-color: var(--primary-color);
@@ -29,7 +30,6 @@
 .side-nav p:nth-child(odd) {
   background-color: #fab2be;
   border-radius: 0.5rem;
-  /* color: var(--slate-white); */
 }
 
 .main-content {
@@ -56,6 +56,7 @@
 
 .img-preview {
   width: 20rem;
+  height: 13rem;
   border-radius: 0.5rem;
 }
 

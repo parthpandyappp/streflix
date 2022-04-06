@@ -9,7 +9,7 @@ export const videos = [
     title: "Yellow Paper Daisy (Nature Tapes) feat. Munroe Island",
     description:
       "Nature Tapes is a series of videos shot across some of the most beautiful locales in our country; where we record acoustically reimagined versions of our songs amidst nature. Here is Yellow Paper Daisy shot in the picturesque backwaters of Munroe Island, Kerala. ",
-    imgPreview: "https://i.ytimg.com/an_webp/RshlH3T27U4/mqdefault_6s.webp?du=3000&sqp=CJqasZIG&rs=AOn4CLDgzJP5S2wVcLjXQMTk8uXXAqqK6A",
+    imgPreview: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJ4RKxNBY1zwIOZdYC33PqMJaLfgB5sRwzg&usqp=CAU",
     videoURL: "JDfsMiovE1A",
     creator: "When Chai Met Toast",
   },
@@ -18,7 +18,7 @@ export const videos = [
     title: "When We Feel Young (Nature Tapes)",
     description:
       "Introducing Nature Tapes, a series of videos shot across some of the most beautiful locales in our country; where we record acoustically reimagined versions of our songs amidst nature. Here is When We Feel Young at Vagamon, Kerala.",
-    imgPreview: "https://i.ytimg.com/an_webp/xJtp2W_z-ec/mqdefault_6s.webp?du=3000&sqp=CPvAsZIG&rs=AOn4CLCky1uu9EWXE_pFKkiryKCkilon7g",
+    imgPreview: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlOL33QbZobuRAANRIBiL5V6HYDrBbiKs8lQ&usqp=CAU",
     videoURL: "xJtp2W_z-ec",
     creator: "When Chai Met Toast",
   },
@@ -36,7 +36,7 @@ export const videos = [
     title: "हिंदी Oggy and the Cockroaches 🔧 KEYS & IDEAS 🔧 Hindi Cartoons for Kids",
     description:
       "Introducing Nature Tapes, a series of videos shot across some of the most beautiful locales in our country; where we record acoustically reimagined versions of our songs amidst nature. Here is When We Feel Young at Vagamon, Kerala.",
-    imgPreview: "https://i.ytimg.com/an_webp/MUMCZZl9QCY/mqdefault_6s.webp?du=3000&sqp=CP6ysJIG&rs=AOn4CLDt8lYblqM0PmEBTVtLJSWujp4-HQ",
+    imgPreview: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9hFV9wAZ-8kXqgmp6BfBRY0BlS0OM4iTImA&usqp=CAU",
     videoURL: "MUMCZZl9QCY",
     creator: "Oggy & the cockroaches",
   },
@@ -45,7 +45,7 @@ export const videos = [
     title: "Cash Machine | Mr Bean | Cartoons for Kids | WildBrain Kids",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas at aperiam quasi! Dolorum aspernatur enim, provident non corporis similique eveniet ullam maiores maxime debitis incidunt consequuntur distinctio nostrum minus accusantium?",
-    imgPreview: "https://i.ytimg.com/an_webp/on-UjA2CwmI/mqdefault_6s.webp?du=3000&sqp=CMLSsZIG&rs=AOn4CLBOQwPOIk7ycOcsTbThxEQjMyk3NQ",
+    imgPreview: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2788Wlja6YzJW2gdQMq6veqjHQBTXr53NRw&usqp=CAU",
     videoURL: "P2BYM7PYdBk",
     creator: "Mr. Bean",
   },
@@ -54,7 +54,7 @@ export const videos = [
     title: "Ninja Hattori new 2020 episode in Hindi ",
     description:
       "Introducing Nature Tapes, a series of videos shot across some of the most beautiful locales in our country; where we record acoustically reimagined versions of our songs amidst nature. Here is When We Feel Young at Vagamon, Kerala.",
-    imgPreview: "https://i.ytimg.com/an_webp/RV7Ul6RJjHQ/mqdefault_6s.webp?du=3000&sqp=CJjtsZIG&rs=AOn4CLDXugntax2P-xBkjikccU9j1ht1LQ",
+    imgPreview: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkQSNnnm9GpAh6b2fnRx9NSPj3WMx9qdMw2g&usqp=CAU",
     videoURL: "NaO1lRLGlhs",
     creator: "Ninja Hattori",
   },
