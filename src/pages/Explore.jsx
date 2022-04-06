@@ -1,19 +1,12 @@
 import { useVideoData } from "../custom-hooks";
-import { VideoCard } from "../components";
+import { VideoCard, SideNav } from "../components";
 
 function Explore() {
   const videos = useVideoData();
 
   return (
     <div className="main-container">
-      <div className="side-nav">
-        <p>Home</p>
-        <p>Explore</p>
-        <p>Playlist</p>
-        <p>Watch Later</p>
-        <p>Liked Videos</p>
-        <p>Watch History</p>
-      </div>
+      <SideNav />
       <div className="main-content">
         <div className="center-hv">
           <h1 className="main-title">

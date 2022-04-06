@@ -16,20 +16,23 @@
   grid-area: sidebar;
   padding: 0rem 0.5rem;
   border-right: 1.5px solid #f43f5e;
+  gap: 1rem;
 }
 
-.side-nav p {
-  padding: 0.5rem 1rem;
+.sideNav-opt p {
+  padding: 0rem 0.5rem;
   cursor: pointer;
 }
-.side-nav p:nth-child(even) {
+.sideNav-opt:nth-child(even) {
   background-color: var(--primary-color);
   border-radius: 0.5rem;
   color: var(--slate-white);
+  margin-top: 1rem;
 }
-.side-nav p:nth-child(odd) {
+.sideNav-opt:nth-child(odd) {
   background-color: #fab2be;
   border-radius: 0.5rem;
+  margin-top: 1rem;
 }
 
 .main-content {
@@ -52,6 +55,7 @@
   border: 1px solid #000000;
   width: 20rem;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .img-preview {
@@ -107,4 +111,8 @@
 .detail-preview {
   height: 60vh;
   width: 150vh;
+}
+
+.empty-data {
+  width: 25rem;
 }

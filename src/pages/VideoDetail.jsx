@@ -1,11 +1,16 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useVideoData } from "../custom-hooks";
 import { useEffect, useState } from "react";
+import { useGenericData, useAuth } from "../contexts";
+import { SideNav } from "../components";
+import { addToWatchLater } from "../helper-functions";
 
 function VideoDetail() {
+  const { user } = useAuth();
   const { vid } = useParams();
   const videoData = useVideoData();
   const [videoObj, setObj] = useState(null);
+  const { boolFunc } = useGenericData();
 
   const checkAvailability = () => {
     const videoObj = videoData.find((video) => video._id === vid);
@@ -19,14 +24,7 @@ function VideoDetail() {
 
   return (
     <div className="main-container">
-      <div className="side-nav">
-        <p>Home</p>
-        <p>Explore</p>
-        <p>Playlist</p>
-        <p>Watch Later</p>
-        <p>Liked Videos</p>
-        <p>Watch History</p>
-      </div>
+      <SideNav />
       <div className="main-content">
         <div className="center-hv">
           <h1 className="main-title">
@@ -60,11 +58,22 @@ function VideoDetail() {
                     title="Dislike this video"
                     alt="dislike"
                   />
-                  <img
-                    src="https://img.icons8.com/windows/48/000000/clock--v1.png"
-                    title="Add to Watch Later"
-                    alt="watch-later"
-                  />
+                  {user ? (
+                    <img
+                      onClick={() => addToWatchLater(videoObj, boolFunc)}
+                      src="https://img.icons8.com/windows/48/000000/clock--v1.png"
+                      title="Add to Watch Later"
+                      alt="watch-later"
+                    />
+                  ) : (
+                    <Link to="/login">
+                      <img
+                        src="https://img.icons8.com/windows/48/000000/clock--v1.png"
+                        title="Add to Watch Later"
+                        alt="watch-later"
+                      />
+                    </Link>
+                  )}
                   <img
                     src="https://img.icons8.com/ios-glyphs/48/000000/lounge-music-playlist.png"
                     title="Add to Playlist"

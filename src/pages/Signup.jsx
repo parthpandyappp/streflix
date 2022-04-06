@@ -6,11 +6,11 @@ function Signup() {
         <form>
           <h2>Sign up</h2>
           <div className="inp-unit">
-            <label for="email">Name</label>
+            <label htmlFor="email">Name</label>
             <input type="text" name="email" placeholder="johnsangram" />
           </div>
           <div className="inp-unit">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -18,12 +18,12 @@ function Signup() {
             />
           </div>
           <div className="inp-unit">
-            <label for="email">Password</label>
+            <label htmlFor="email">Password</label>
             <input type="password" name="email" placeholder="**********" />
           </div>
 
           <div className="inp-unit">
-            <label for="email">Confirm Password</label>
+            <label htmlFor="email">Confirm Password</label>
             <input type="password" name="Password" placeholder="**********" />
           </div>
 
