@@ -1,0 +1,1 @@
+export { genericReducer } from "./genericReducer"
