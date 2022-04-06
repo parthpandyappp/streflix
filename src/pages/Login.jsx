@@ -17,7 +17,7 @@ function Login() {
         >
           <h2>Login</h2>
           <div className="inp-unit">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -27,7 +27,7 @@ function Login() {
             />
           </div>
           <div className="inp-unit">
-            <label for="email">Password</label>
+            <label htmlFor="email">Password</label>
             <input
               type="password"
               name="password"
@@ -41,7 +41,7 @@ function Login() {
             <button className="btn btn-primary login-btn">Login</button>
             <div className="text-center">
               <input type="checkbox" id="rem-me" name="rem-me" />
-              <label for="rem-me">Remember me</label>
+              <label htmlFor="rem-me">Remember me</label>
             </div>
           </div>
           <p>

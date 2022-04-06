@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useVideoData } from "../custom-hooks";
 import { useEffect, useState } from "react";
-import { useGenericData } from "../contexts";
+import { useGenericData, useAuth } from "../contexts";
 import { SideNav } from "../components";
 import { addToWatchLater } from "../helper-functions";
 
 function VideoDetail() {
+  const { user } = useAuth();
   const { vid } = useParams();
   const videoData = useVideoData();
   const [videoObj, setObj] = useState(null);
@@ -57,12 +58,22 @@ function VideoDetail() {
                     title="Dislike this video"
                     alt="dislike"
                   />
-                  <img
-                    onClick={() => addToWatchLater(videoObj, boolFunc)}
-                    src="https://img.icons8.com/windows/48/000000/clock--v1.png"
-                    title="Add to Watch Later"
-                    alt="watch-later"
-                  />
+                  {user ? (
+                    <img
+                      onClick={() => addToWatchLater(videoObj, boolFunc)}
+                      src="https://img.icons8.com/windows/48/000000/clock--v1.png"
+                      title="Add to Watch Later"
+                      alt="watch-later"
+                    />
+                  ) : (
+                    <Link to="/login">
+                      <img
+                        src="https://img.icons8.com/windows/48/000000/clock--v1.png"
+                        title="Add to Watch Later"
+                        alt="watch-later"
+                      />
+                    </Link>
+                  )}
                   <img
                     src="https://img.icons8.com/ios-glyphs/48/000000/lounge-music-playlist.png"
                     title="Add to Playlist"
