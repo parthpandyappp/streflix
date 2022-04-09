@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function VidHistory() {
   const { state, boolFunc } = useGenericData();
-  console.log("History: ", state.watchHistory);
   return (
     <div>
       <div className="main-container">
