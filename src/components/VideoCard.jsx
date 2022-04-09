@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { removeFromWatchLater } from "../helper-functions";
+import { removeFromWatchLater, addToWatchHistory } from "../helper-functions";
 import { useGenericData } from "../contexts";
 
 function VideoCard({ video }) {
@@ -7,7 +7,10 @@ function VideoCard({ video }) {
 
   return (
     <div className="card-main">
-      <Link to={`/video/${video._id}`}>
+      <Link
+        to={`/video/${video._id}`}
+        onClick={() => addToWatchHistory(video, boolFunc)}
+      >
         <img className="img-preview" src={video.imgPreview} alt="vid" />
 
         <div className="vid-info">
