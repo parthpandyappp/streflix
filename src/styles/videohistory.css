@@ -1,0 +1,47 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.vidurl-link {
+  color: var(--primary-color);
+}
+
+.sm-icon {
+  width: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.clr-all {
+  background-color: var(--slate-white);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.mid-ver {
+  display: flex;
+  align-items: center;
+}
+
+.txt-center {
+  text-align: center;
+}
