@@ -1,5 +1,21 @@
 import axios from "axios";
 
+const getHistoryData = async (dispatch) => {
+    try {
+        const encodedToken = localStorage.getItem("token");
+        const response = await axios({
+            method: "GET",
+            headers: {
+                authorization: encodedToken, // passing token as an authorization header
+            },
+            url: "/api/user/history",
+        });
+        dispatch({ type: "SET_HISTORY_DATA", payload: response.data.history });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const addToWatchHistory = async (videoObj, boolFunc) => {
     try {
         // token required as an authorization header
@@ -59,4 +75,4 @@ const removeAllFromHistory = async (boolFunc) => {
 };
 
 
-export { addToWatchHistory, removeFromHistory, removeAllFromHistory }
+export { addToWatchHistory, removeFromHistory, removeAllFromHistory, getHistoryData }
