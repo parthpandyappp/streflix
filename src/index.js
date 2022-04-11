@@ -4,8 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from 'react-router-dom';
-import { GenericDataProvider } from "./contexts";
-import { AuthProvider } from "./contexts"
+import { GenericDataProvider, AuthProvider, CategoryProvider } from "./contexts";
 
 // Call make Server
 makeServer();
@@ -15,7 +14,9 @@ ReactDOM.render(
     <Router>
       <AuthProvider>
         <GenericDataProvider>
-          <App />
+          <CategoryProvider>
+            <App />
+          </CategoryProvider>
         </GenericDataProvider>
       </AuthProvider>
     </Router>

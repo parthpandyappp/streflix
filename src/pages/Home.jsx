@@ -44,12 +44,12 @@ function Home() {
         <div className="category-container">
           <div className="category">
             <div className="categories-title">
-              <h3>Education</h3>
+              <h3>Movies</h3>
             </div>
             <Link to="/explore">
               <img
                 className="category-img"
-                src="https://i.ibb.co/K9Bx1SD/streflix-education.jpg"
+                src="https://i.ibb.co/pPncj79/streflix-movie.jpg"
                 alt="cateogory-education"
               />
             </Link>
@@ -57,12 +57,12 @@ function Home() {
 
           <div className="category">
             <div className="categories-title">
-              <h3>Gaming</h3>
+              <h3>Indie Music</h3>
             </div>
             <Link to="/explore">
               <img
                 className="category-img"
-                src="https://i.ibb.co/GVgTxDZ/streflix-gaming.jpg"
+                src="https://i.ibb.co/rmHPk8x/streflix-music.jpg"
                 alt="cateogory-gaming"
               />
             </Link>

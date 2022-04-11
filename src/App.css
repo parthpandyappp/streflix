@@ -157,8 +157,22 @@ a {
   position: absolute;
   width: 12rem;
   height: 15rem;
+  object-fit: cover;
   left: -8%;
   border-radius: 0.5rem;
+}
+
+.categories {
+  display: flex;
+  gap: 1rem;
+}
+
+.category-badge {
+  background-color: var(--primary-color);
+  color: var(--slate-white);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
 }
 
 footer {
