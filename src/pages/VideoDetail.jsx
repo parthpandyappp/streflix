@@ -1,16 +1,21 @@
-import { Link, useParams } from "react-router-dom";
-import { useVideoData } from "../custom-hooks";
-import { useEffect, useState } from "react";
-import { useGenericData, useAuth } from "../contexts";
 import { SideNav } from "../components";
-import { addToWatchLater } from "../helper-functions";
+import { useEffect, useState } from "react";
+import { useVideoData } from "../custom-hooks";
+import { Link, useParams } from "react-router-dom";
+import { useGenericData, useAuth } from "../contexts";
+
+import {
+  addToWatchLater,
+  addToLikes,
+  removeFromLikes,
+} from "../helper-functions";
 
 function VideoDetail() {
   const { user } = useAuth();
   const { vid } = useParams();
   const videoData = useVideoData();
   const [videoObj, setObj] = useState(null);
-  const { boolFunc } = useGenericData();
+  const { state, boolFunc } = useGenericData();
 
   const checkAvailability = () => {
     const videoObj = videoData.find((video) => video._id === vid);
@@ -21,6 +26,14 @@ function VideoDetail() {
     checkAvailability();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoData]);
+
+  const checkInLiked = (id) => {
+    if (state.Liked.length > 0) {
+      console.log("once");
+      return state.Liked.find((item) => item._id === id);
+    }
+    return false;
+  };
 
   return (
     <div className="main-container">
@@ -48,16 +61,22 @@ function VideoDetail() {
                 ></iframe>
                 <hr />
                 <div className="user-opts">
-                  <img
-                    src="https://img.icons8.com/material-outlined/48/000000/thumb-up.png"
-                    title="Like this video"
-                    alt="like"
-                  />
-                  <img
-                    src="https://img.icons8.com/material-outlined/48/000000/thumbs-down.png"
-                    title="Dislike this video"
-                    alt="dislike"
-                  />
+                  {checkInLiked(videoObj._id) ? (
+                    <img
+                      onClick={() => removeFromLikes(videoObj._id, boolFunc)}
+                      src="https://img.icons8.com/material-sharp/48/000000/thumb-up.png"
+                      title="Like this video"
+                      alt="like"
+                    />
+                  ) : (
+                    <img
+                      onClick={() => addToLikes(videoObj, boolFunc)}
+                      src="https://img.icons8.com/material-outlined/48/000000/thumb-up.png"
+                      title="Like this video"
+                      alt="like"
+                    />
+                  )}
+
                   {user ? (
                     <img
                       onClick={() => addToWatchLater(videoObj, boolFunc)}

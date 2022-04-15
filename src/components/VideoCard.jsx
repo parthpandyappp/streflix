@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import { removeFromWatchLater, addToWatchHistory } from "../helper-functions";
+import {
+  removeFromWatchLater,
+  addToWatchHistory,
+  removeFromLikes,
+} from "../helper-functions";
 import { useGenericData } from "../contexts";
 
 function VideoCard({ video }) {
@@ -19,6 +23,8 @@ function VideoCard({ video }) {
           <p className="vid-desc">Created by: {video.creator}</p>
         </div>
       </Link>
+
+      {/* Shows Remove from Watch Later button */}
       {video.from === "watchlater" ? (
         <div className="utils-opts">
           <button
@@ -26,6 +32,20 @@ function VideoCard({ video }) {
             onClick={() => removeFromWatchLater(video._id, boolFunc)}
           >
             Remove from Watch Later
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/* Shows Remove from Liked Videos button */}
+      {video.from === "liked" ? (
+        <div className="utils-opts">
+          <button
+            className="btn btn-primary"
+            onClick={() => removeFromLikes(video._id, boolFunc)}
+          >
+            Remove from Liked Videos
           </button>
         </div>
       ) : (

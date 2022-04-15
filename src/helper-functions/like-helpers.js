@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from "axios"
 
-const getWatchLaterData = async (dispatch) => {
+const getLikedData = async (dispatch) => {
     try {
         const encodedToken = localStorage.getItem("token");
         const response = await axios({
@@ -8,15 +8,16 @@ const getWatchLaterData = async (dispatch) => {
             headers: {
                 authorization: encodedToken, // passing token as an authorization header
             },
-            url: "/api/user/watchlater",
+            url: "/api/user/likes",
         });
-        dispatch({ type: "SET_WATCHLATER_DATA", payload: response.data.watchlater });
+        dispatch({ type: "SET_LIKED_DATA", payload: response.data.likes });
     } catch (error) {
         console.log(error);
     }
 };
 
-const addToWatchLater = async (videoObj, boolFunc) => {
+
+const addToLikes = async (videoObj, boolFunc) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -26,7 +27,7 @@ const addToWatchLater = async (videoObj, boolFunc) => {
             headers: {
                 authorization: encodedToken,
             },
-            url: "/api/user/watchlater",
+            url: "/api/user/likes",
             data: JSON.stringify({
                 video: videoObj,
             }),
@@ -38,7 +39,7 @@ const addToWatchLater = async (videoObj, boolFunc) => {
     }
 };
 
-const removeFromWatchLater = async (id, boolFunc) => {
+const removeFromLikes = async (id, boolFunc) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -47,7 +48,7 @@ const removeFromWatchLater = async (id, boolFunc) => {
             headers: {
                 authorization: encodedToken,
             },
-            url: `/api/user/watchlater/${id}`,
+            url: `/api/user/likes/${id}`,
         });
 
         boolFunc();
@@ -56,4 +57,4 @@ const removeFromWatchLater = async (id, boolFunc) => {
     }
 };
 
-export { addToWatchLater, removeFromWatchLater, getWatchLaterData }
+export { addToLikes, removeFromLikes, getLikedData };

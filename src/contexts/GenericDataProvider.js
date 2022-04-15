@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useAuth } from "./AuthProvider";
 import { genericReducer } from "../reducers/";
+import { getHistoryData, getWatchLaterData, getLikedData } from "../helper-functions";
 
 import {
     useContext,
@@ -15,45 +15,14 @@ const DataContext = createContext(null);
 function GenericDataProvider({ children }) {
     const { user } = useAuth();
 
-    const [state, dispatch] = useReducer(genericReducer, { watchLater: [], watchHistory: [] });
+    const [state, dispatch] = useReducer(genericReducer, { watchLater: [], watchHistory: [], Liked: [] });
     const [boolSwitch, setBoolSwitch] = useState(false);
-
-    const getWatchLaterData = async () => {
-        try {
-            const encodedToken = localStorage.getItem("token");
-            const response = await axios({
-                method: "GET",
-                headers: {
-                    authorization: encodedToken, // passing token as an authorization header
-                },
-                url: "/api/user/watchlater",
-            });
-            dispatch({ type: "SET_WATCHLATER_DATA", payload: response.data.watchlater });
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const getHistoryData = async () => {
-        try {
-            const encodedToken = localStorage.getItem("token");
-            const response = await axios({
-                method: "GET",
-                headers: {
-                    authorization: encodedToken, // passing token as an authorization header
-                },
-                url: "/api/user/history",
-            });
-            dispatch({ type: "SET_HISTORY_DATA", payload: response.data.history });
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     useEffect(() => {
         if (user) {
-            getWatchLaterData();
-            getHistoryData();
+            getWatchLaterData(dispatch);
+            getHistoryData(dispatch);
+            getLikedData(dispatch);
         }
     }, [boolSwitch, user]);
 

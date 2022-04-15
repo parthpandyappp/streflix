@@ -4,6 +4,8 @@ const genericReducer = (state, action) => {
             return { ...state, watchLater: action.payload };
         case "SET_HISTORY_DATA":
             return { ...state, watchHistory: action.payload };
+        case "SET_LIKED_DATA":
+            return { ...state, Liked: action.payload };
         default:
             return state;
     }
