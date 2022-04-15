@@ -7,3 +7,4 @@ export { LikedVids } from "./LikedVids";
 export { WatchLater } from "./WatchLater";
 export { VidHistory } from "./VidHistory";
 export { VideoDetail } from "./VideoDetail";
+export { PlaylistDetail } from "./PlaylistDetail";

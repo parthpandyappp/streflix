@@ -3,10 +3,12 @@ import {
   removeFromWatchLater,
   addToWatchHistory,
   removeFromLikes,
+  removeFromPlaylist,
 } from "../helper-functions";
+
 import { useGenericData } from "../contexts";
 
-function VideoCard({ video }) {
+function VideoCard({ video, pid }) {
   const { boolFunc } = useGenericData();
 
   return (
@@ -34,9 +36,7 @@ function VideoCard({ video }) {
             Remove from Watch Later
           </button>
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
 
       {/* Shows Remove from Liked Videos button */}
       {video.from === "liked" ? (
@@ -48,9 +48,20 @@ function VideoCard({ video }) {
             Remove from Liked Videos
           </button>
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
+
+      {/* Shows Remove from Playlist button */}
+
+      {video.from === "playlist" ? (
+        <div className="utils-opts">
+          <button
+            className="btn btn-primary"
+            onClick={() => removeFromPlaylist(video._id, pid, boolFunc)}
+          >
+            Remove from Playlist
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

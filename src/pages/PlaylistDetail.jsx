@@ -1,8 +1,12 @@
 import { useGenericData } from "../contexts";
-import { PlaylistCard, SideNav } from "../components";
+import { useParams } from "react-router-dom";
+import { SideNav, VideoCard } from "../components";
 
-function Playlist() {
+function PlaylistDetail() {
+  const { pid } = useParams();
   const { state } = useGenericData();
+
+  const playlistObj = state.playlist.find((playlist) => playlist._id === pid);
 
   return (
     <div className="main-container">
@@ -19,10 +23,17 @@ function Playlist() {
             </span>
             /<span className="title-empha">Stre</span>Flix
           </h1>
-          {state.playlist.length > 0 ? (
+          {playlistObj.videos.length > 0 ? (
             <div className="video-container">
-              {state.playlist.map((playlist) => {
-                return <PlaylistCard key={playlist._id} playlist={playlist} />;
+              {playlistObj.videos.map((video) => {
+                Object.assign(video, { from: "playlist" });
+                return (
+                  <VideoCard
+                    key={video._id}
+                    video={video}
+                    pid={playlistObj._id}
+                  />
+                );
               })}
             </div>
           ) : (
@@ -41,4 +52,4 @@ function Playlist() {
   );
 }
 
-export { Playlist };
+export { PlaylistDetail };

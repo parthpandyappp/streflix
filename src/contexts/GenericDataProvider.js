@@ -1,6 +1,6 @@
 import { useAuth } from "./AuthProvider";
 import { genericReducer } from "../reducers/";
-import { getHistoryData, getWatchLaterData, getLikedData } from "../helper-functions";
+import { getHistoryData, getWatchLaterData, getLikedData, getPlaylistData } from "../helper-functions";
 
 import {
     useContext,
@@ -15,7 +15,7 @@ const DataContext = createContext(null);
 function GenericDataProvider({ children }) {
     const { user } = useAuth();
 
-    const [state, dispatch] = useReducer(genericReducer, { watchLater: [], watchHistory: [], Liked: [] });
+    const [state, dispatch] = useReducer(genericReducer, { watchLater: [], watchHistory: [], Liked: [], playlist: [] });
     const [boolSwitch, setBoolSwitch] = useState(false);
 
     useEffect(() => {
@@ -23,6 +23,7 @@ function GenericDataProvider({ children }) {
             getWatchLaterData(dispatch);
             getHistoryData(dispatch);
             getLikedData(dispatch);
+            getPlaylistData(dispatch);
         }
     }, [boolSwitch, user]);
 
