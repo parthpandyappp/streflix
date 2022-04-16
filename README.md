@@ -5,11 +5,11 @@
 # Streflix📺 - Stream at peace
 ### https://streflix.netlify.app/
 
-Unlimited Movies, TV shows and more🥂. Stream videos at peace😌, at your convenience. Drag your couch🛋️ and start watching👀!!
   
 </div>
 
 
+Unlimited Movies, TV shows and more🥂. Stream videos at peace😌, at your convenience. Drag your couch🛋️ and start watching👀!!
 
 ### Tech Stack
 <hr/>
