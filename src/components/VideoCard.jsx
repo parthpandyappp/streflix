@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import {
   removeFromWatchLater,
   addToWatchHistory,
   removeFromLikes,
   removeFromPlaylist,
+  notifyRemoveLiked,
+  notifyRemoveFromPlaylist,
+  notifyRemoveWatchLater,
 } from "../helper-functions";
 
 import { useGenericData } from "../contexts";
@@ -13,6 +18,7 @@ function VideoCard({ video, pid }) {
 
   return (
     <div className="card-main">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <Link
         to={`/video/${video._id}`}
         onClick={() => addToWatchHistory(video, boolFunc)}
@@ -31,7 +37,9 @@ function VideoCard({ video, pid }) {
         <div className="utils-opts">
           <button
             className="btn btn-primary"
-            onClick={() => removeFromWatchLater(video._id, boolFunc)}
+            onClick={() =>
+              removeFromWatchLater(video._id, boolFunc, notifyRemoveWatchLater)
+            }
           >
             Remove from Watch Later
           </button>
@@ -43,7 +51,9 @@ function VideoCard({ video, pid }) {
         <div className="utils-opts">
           <button
             className="btn btn-primary"
-            onClick={() => removeFromLikes(video._id, boolFunc)}
+            onClick={() =>
+              removeFromLikes(video._id, boolFunc, notifyRemoveLiked)
+            }
           >
             Remove from Liked Videos
           </button>
@@ -56,7 +66,14 @@ function VideoCard({ video, pid }) {
         <div className="utils-opts">
           <button
             className="btn btn-primary"
-            onClick={() => removeFromPlaylist(video._id, pid, boolFunc)}
+            onClick={() =>
+              removeFromPlaylist(
+                video._id,
+                pid,
+                boolFunc,
+                notifyRemoveFromPlaylist
+              )
+            }
           >
             Remove from Playlist
           </button>

@@ -1,4 +1,5 @@
 import { SideNav } from "../components";
+import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useVideoData } from "../custom-hooks";
 import { Link, useParams } from "react-router-dom";
@@ -10,6 +11,11 @@ import {
   removeFromLikes,
   postNewPlaylist,
   postVideoToPlaylist,
+  notifyAddedToPlaylist,
+  notifyRemoveLiked,
+  notifyLiked,
+  notifyWatchLater,
+  notifyPlaylistCreated,
 } from "../helper-functions";
 
 function VideoDetail() {
@@ -45,7 +51,7 @@ function VideoDetail() {
   return (
     <div className="main-container">
       <SideNav />
-
+      <Toaster position="bottom-right" reverseOrder={false} />
       <div className="main-content">
         <div className="center-hv">
           <h1 className="main-title">
@@ -71,14 +77,22 @@ function VideoDetail() {
                 <div className="user-opts">
                   {checkInLiked(videoObj._id) ? (
                     <img
-                      onClick={() => removeFromLikes(videoObj._id, boolFunc)}
+                      onClick={() =>
+                        removeFromLikes(
+                          videoObj._id,
+                          boolFunc,
+                          notifyRemoveLiked
+                        )
+                      }
                       src="https://img.icons8.com/material-sharp/48/000000/thumb-up.png"
                       title="Like this video"
                       alt="like"
                     />
                   ) : (
                     <img
-                      onClick={() => addToLikes(videoObj, boolFunc)}
+                      onClick={() =>
+                        addToLikes(videoObj, boolFunc, notifyLiked)
+                      }
                       src="https://img.icons8.com/material-outlined/48/000000/thumb-up.png"
                       title="Like this video"
                       alt="like"
@@ -87,7 +101,9 @@ function VideoDetail() {
 
                   {user ? (
                     <img
-                      onClick={() => addToWatchLater(videoObj, boolFunc)}
+                      onClick={() =>
+                        addToWatchLater(videoObj, boolFunc, notifyWatchLater)
+                      }
                       src="https://img.icons8.com/windows/48/000000/clock--v1.png"
                       title="Add to Watch Later"
                       alt="watch-later"
@@ -133,7 +149,12 @@ function VideoDetail() {
                       <input
                         type="checkbox"
                         onChange={() =>
-                          postVideoToPlaylist(playlist._id, dispatch, videoObj)
+                          postVideoToPlaylist(
+                            playlist._id,
+                            dispatch,
+                            videoObj,
+                            notifyAddedToPlaylist
+                          )
                         }
                       />
                       {playlist.title}
@@ -148,7 +169,11 @@ function VideoDetail() {
                 className="playlist-form"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  postNewPlaylist({ title: playListName }, dispatch);
+                  postNewPlaylist(
+                    { title: playListName },
+                    dispatch,
+                    notifyPlaylistCreated
+                  );
                   setCreateNewPlayList(false);
                   setPlayListName("");
                 }}

@@ -16,7 +16,7 @@ const getWatchLaterData = async (dispatch) => {
     }
 };
 
-const addToWatchLater = async (videoObj, boolFunc) => {
+const addToWatchLater = async (videoObj, boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -33,12 +33,13 @@ const addToWatchLater = async (videoObj, boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
-const removeFromWatchLater = async (id, boolFunc) => {
+const removeFromWatchLater = async (id, boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -51,6 +52,7 @@ const removeFromWatchLater = async (id, boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }

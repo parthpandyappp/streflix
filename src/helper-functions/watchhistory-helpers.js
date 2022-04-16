@@ -16,7 +16,7 @@ const getHistoryData = async (dispatch) => {
     }
 };
 
-const addToWatchHistory = async (videoObj, boolFunc) => {
+const addToWatchHistory = async (videoObj, boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -33,12 +33,13 @@ const addToWatchHistory = async (videoObj, boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
-const removeFromHistory = async (id, boolFunc) => {
+const removeFromHistory = async (id, boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -51,12 +52,13 @@ const removeFromHistory = async (id, boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
-const removeAllFromHistory = async (boolFunc) => {
+const removeAllFromHistory = async (boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -69,6 +71,7 @@ const removeAllFromHistory = async (boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }
