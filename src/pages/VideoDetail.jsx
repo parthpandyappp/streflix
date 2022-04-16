@@ -8,6 +8,8 @@ import {
   addToWatchLater,
   addToLikes,
   removeFromLikes,
+  postNewPlaylist,
+  postVideoToPlaylist,
 } from "../helper-functions";
 
 function VideoDetail() {
@@ -15,7 +17,13 @@ function VideoDetail() {
   const { vid } = useParams();
   const videoData = useVideoData();
   const [videoObj, setObj] = useState(null);
-  const { state, boolFunc } = useGenericData();
+  const [playListName, setPlayListName] = useState("");
+  const { state, dispatch, boolFunc } = useGenericData();
+  const [loadModal, setLoadModal] = useState("hide-modal");
+  const [createNewPlayList, setCreateNewPlayList] = useState(false);
+
+  const changeModalState = () =>
+    loadModal === "" ? setLoadModal("hide-modal") : setLoadModal("");
 
   const checkAvailability = () => {
     const videoObj = videoData.find((video) => video._id === vid);
@@ -29,7 +37,6 @@ function VideoDetail() {
 
   const checkInLiked = (id) => {
     if (state.Liked.length > 0) {
-      console.log("once");
       return state.Liked.find((item) => item._id === id);
     }
     return false;
@@ -38,6 +45,7 @@ function VideoDetail() {
   return (
     <div className="main-container">
       <SideNav />
+
       <div className="main-content">
         <div className="center-hv">
           <h1 className="main-title">
@@ -94,11 +102,73 @@ function VideoDetail() {
                     </Link>
                   )}
                   <img
+                    onClick={changeModalState}
                     src="https://img.icons8.com/ios-glyphs/48/000000/lounge-music-playlist.png"
                     title="Add to Playlist"
                     alt="playlist"
                   />
                 </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className={`playlist-modal ${loadModal}`}>
+        <div className="playlist-content">
+          <div className="playlist-modal-heading">
+            <h2>Add to Playlist</h2>
+            <img
+              className="cancel-btn"
+              onClick={changeModalState}
+              src="https://img.icons8.com/ios/50/000000/cancel.png"
+            />
+          </div>
+          <hr />
+          <div>
+            {state.playlist && state.playlist.length > 0
+              ? state.playlist.map((playlist) => (
+                  <div key={playlist._id} className="playlist-modal-content">
+                    <label htmlFor="">
+                      <input
+                        type="checkbox"
+                        onChange={() =>
+                          postVideoToPlaylist(playlist._id, dispatch, videoObj)
+                        }
+                      />
+                      {playlist.title}
+                    </label>
+                  </div>
+                ))
+              : ""}
+          </div>
+          <div className="center-hv mt-05">
+            {createNewPlayList ? (
+              <form
+                className="playlist-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  postNewPlaylist({ title: playListName }, dispatch);
+                  setCreateNewPlayList(false);
+                  setPlayListName("");
+                }}
+              >
+                <input
+                  className="playlist-inp"
+                  type="text"
+                  placeholder="Playlist Name"
+                  value={playListName}
+                  onChange={(e) => setPlayListName(e.target.value)}
+                />
+                <button type="submit">Submit</button>
+              </form>
+            ) : (
+              <div className="center-hv mt-05">
+                <button
+                  onClick={() => setCreateNewPlayList(!createNewPlayList)}
+                >
+                  Create New Playlist
+                </button>
               </div>
             )}
           </div>
