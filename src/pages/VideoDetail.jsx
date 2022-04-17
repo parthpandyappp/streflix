@@ -190,6 +190,7 @@ function VideoDetail() {
             ) : (
               <div className="center-hv mt-05">
                 <button
+                  className="btn btn-primary"
                   onClick={() => setCreateNewPlayList(!createNewPlayList)}
                 >
                   Create New Playlist
