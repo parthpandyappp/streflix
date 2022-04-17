@@ -17,7 +17,7 @@ const getLikedData = async (dispatch) => {
 };
 
 
-const addToLikes = async (videoObj, boolFunc) => {
+const addToLikes = async (videoObj, boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -34,12 +34,13 @@ const addToLikes = async (videoObj, boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
-const removeFromLikes = async (id, boolFunc) => {
+const removeFromLikes = async (id, boolFunc, notify) => {
     try {
         // token required as an authorization header
         const encodedToken = localStorage.getItem("token");
@@ -52,6 +53,7 @@ const removeFromLikes = async (id, boolFunc) => {
         });
 
         boolFunc();
+        notify();
     } catch (error) {
         console.log(error);
     }

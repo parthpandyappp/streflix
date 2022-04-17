@@ -16,7 +16,7 @@ const getPlaylistData = async (dispatch) => {
     }
 };
 
-const removeFromPlaylist = async (videoId, playlistId, dispatch) => {
+const removeFromPlaylist = async (videoId, playlistId, dispatch, notify) => {
     try {
         console.log(videoId, playlistId)
         const encodedToken = localStorage.getItem("token");
@@ -28,13 +28,14 @@ const removeFromPlaylist = async (videoId, playlistId, dispatch) => {
             url: `/api/user/playlists/${playlistId}/${videoId}`,
         });
         dispatch({ type: "UPDATE_PLAYLIST_DATA", payload: response.data.playlist });
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
 
-const postNewPlaylist = async (playlistObj, dispatch) => {
+const postNewPlaylist = async (playlistObj, dispatch, notify) => {
     try {
         const encodedToken = localStorage.getItem("token");
         const response = await axios({
@@ -49,12 +50,13 @@ const postNewPlaylist = async (playlistObj, dispatch) => {
         });
         console.log(response)
         dispatch({ type: "SET_PLAYLIST_DATA", payload: response.data.playlists });
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
-const postVideoToPlaylist = async (id, dispatch, videoObj) => {
+const postVideoToPlaylist = async (id, dispatch, videoObj, notify) => {
     try {
         const encodedToken = localStorage.getItem("token");
         const response = await axios({
@@ -69,12 +71,13 @@ const postVideoToPlaylist = async (id, dispatch, videoObj) => {
         });
         console.log(response)
         dispatch({ type: "UPDATE_PLAYLIST_DATA", payload: response.data.playlist });
+        notify();
     } catch (error) {
         console.log(error);
     }
 };
 
-const removePlaylist = async (id, dispatch) => {
+const removePlaylist = async (id, dispatch, notify) => {
     try {
         const encodedToken = localStorage.getItem("token");
         const response = await axios({
@@ -85,6 +88,7 @@ const removePlaylist = async (id, dispatch) => {
             url: `/api/user/playlists/${id}`,
         });
         dispatch({ type: "SET_PLAYLIST_DATA", payload: response.data.playlists });
+        notify();
     } catch (error) {
         console.log(error);
     }

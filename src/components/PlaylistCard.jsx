@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import { removePlaylist } from "../helper-functions";
+import { Toaster } from "react-hot-toast";
 import { useGenericData } from "../contexts";
+import { removePlaylist, notifyRemovePlaylist } from "../helper-functions";
 
 function PlaylistCard({ playlist }) {
   const { dispatch } = useGenericData();
   return (
     <div className="playlist-main">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <Link to={`/playlist/${playlist._id}`}>
         {playlist && playlist.videos.length > 0 ? (
           <img
@@ -34,7 +36,9 @@ function PlaylistCard({ playlist }) {
         <h3 className="playlist-title">
           {playlist.title}{" "}
           <img
-            onClick={() => removePlaylist(playlist._id, dispatch)}
+            onClick={() =>
+              removePlaylist(playlist._id, dispatch, notifyRemovePlaylist)
+            }
             className="lg-icon"
             src="https://img.icons8.com/external-creatype-filed-outline-colourcreatype/64/000000/external-bin-user-interface-creatype-filed-outline-colourcreatype.png"
             alt="bin-icon"

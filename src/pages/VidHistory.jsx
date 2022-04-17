@@ -1,7 +1,13 @@
-import { useGenericData } from "../contexts";
-import { removeFromHistory, removeAllFromHistory } from "../helper-functions";
-import { SideNav } from "../components";
 import { Link } from "react-router-dom";
+import { SideNav } from "../components";
+import { Toaster } from "react-hot-toast";
+import { useGenericData } from "../contexts";
+import {
+  removeFromHistory,
+  removeAllFromHistory,
+  notifyClearHistory,
+  notifyClearFromHistory,
+} from "../helper-functions";
 
 function VidHistory() {
   const { state, boolFunc } = useGenericData();
@@ -9,6 +15,7 @@ function VidHistory() {
     <div>
       <div className="main-container">
         <SideNav />
+        <Toaster position="bottom-right" reverseOrder={false} />
         <div className="main-content">
           <div className="center-hv">
             <h1 className="main-title">
@@ -32,7 +39,9 @@ function VidHistory() {
                       Clear{" "}
                       <button
                         className="clr-all"
-                        onClick={() => removeAllFromHistory(boolFunc)}
+                        onClick={() =>
+                          removeAllFromHistory(boolFunc, notifyClearHistory)
+                        }
                       >
                         Clear all
                       </button>
@@ -54,7 +63,11 @@ function VidHistory() {
                         <td className="txt-center">
                           <img
                             onClick={() =>
-                              removeFromHistory(video._id, boolFunc)
+                              removeFromHistory(
+                                video._id,
+                                boolFunc,
+                                notifyClearFromHistory
+                              )
                             }
                             className="sm-icon"
                             src="https://img.icons8.com/ios/50/000000/delete--v1.png"

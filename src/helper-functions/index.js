@@ -9,27 +9,40 @@ export {
 
 export {
     addToLikes,
-    removeFromLikes,
-    getLikedData
+    getLikedData,
+    removeFromLikes
 } from "./like-helpers"
 
 export {
     addToWatchLater,
-    removeFromWatchLater,
-    getWatchLaterData
+    getWatchLaterData,
+    removeFromWatchLater
 } from "./watchlater-helpers"
 
 export {
+    removePlaylist,
     getPlaylistData,
-    removeFromPlaylist,
     postNewPlaylist,
-    postVideoToPlaylist,
-    removePlaylist
+    removeFromPlaylist,
+    postVideoToPlaylist
 } from "./playlist-helpers";
 
 export {
+    getHistoryData,
     addToWatchHistory,
     removeFromHistory,
-    removeAllFromHistory,
-    getHistoryData
+    removeAllFromHistory
 } from "./watchhistory-helpers"
+
+export {
+    notifyLiked,
+    notifyWatchLater,
+    notifyRemoveLiked,
+    notifyClearHistory,
+    notifyRemovePlaylist,
+    notifyAddedToPlaylist,
+    notifyPlaylistCreated,
+    notifyRemoveWatchLater,
+    notifyClearFromHistory,
+    notifyRemoveFromPlaylist
+} from "./toast-helpers"
