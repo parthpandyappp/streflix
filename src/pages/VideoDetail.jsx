@@ -138,6 +138,7 @@ function VideoDetail() {
               className="cancel-btn"
               onClick={changeModalState}
               src="https://img.icons8.com/ios/50/000000/cancel.png"
+              alt="cancel-btn"
             />
           </div>
           <hr />
@@ -148,14 +149,15 @@ function VideoDetail() {
                     <label htmlFor="">
                       <input
                         type="checkbox"
-                        onChange={() =>
+                        onChange={() => {
+                          changeModalState();
                           postVideoToPlaylist(
                             playlist._id,
                             dispatch,
                             videoObj,
                             notifyAddedToPlaylist
-                          )
-                        }
+                          );
+                        }}
                       />
                       {playlist.title}
                     </label>
